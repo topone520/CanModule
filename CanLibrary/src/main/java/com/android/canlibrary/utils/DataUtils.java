@@ -5,7 +5,10 @@ import java.util.List;
 
 /**
  * 串口数据转换工具类
- * Created by Administrator on 2016/6/2.
+ * FileName: DataUtils
+ * Author: ccm
+ * Date: 2023/10/18
+ *
  */
 public class DataUtils {
     //-------------------------------------------------------
@@ -20,13 +23,44 @@ public class DataUtils {
         return Integer.parseInt(inHex, 16);
     }
 
+    //Hex字符串转int 16转8进制
+    public static String HexTo8Int(String inHex) {
+        return Integer.toOctalString(Integer.parseInt(inHex, 16));
+    }
+
     //Hex字符串转int 16转2进制
     public static String HexTo2String(String inHex) {
         return Integer.toBinaryString(Integer.parseInt(inHex, 16));
     }
 
+    //Dec字符串转int 10转16进制
+    public static String DecTo16Int(String inHex) {
+        return Integer.toHexString(Integer.parseInt(inHex));
+    }
+
+    //Dec字符串转int 10转8进制
+    public static String DecTo8Int(String inHex) {
+        return Integer.toOctalString(Integer.parseInt(inHex, 16));
+    }
+
+    //Dec字符串转int 10转2进制
+    public static String DecTo2String(String inHex) {
+        return Integer.toBinaryString(Integer.parseInt(inHex));
+    }
+
+    //Bin字符串转int 2转16进制
+    public static String BinTo16Int(String inHex) {
+        return Integer.toHexString(Integer.parseInt(inHex, 2));
+    }
+
+    //Bin字符串转int 2转10进制
     public static int BinTo10Int(String inHex) {
         return Integer.parseInt(inHex, 2);
+    }
+
+    //Bin字符串转int 2转8进制
+    public static String BinTo8Int(String inHex) {
+        return Integer.toOctalString(Integer.parseInt(inHex, 2));
     }
 
 
