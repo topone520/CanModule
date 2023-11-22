@@ -1,5 +1,7 @@
 package com.android.canlibrary.observer;
 
+import android.util.Log;
+
 import com.android.canlibrary.Constant;
 import com.android.canlibrary.bean.Can1DataBean;
 import com.android.canlibrary.interfaces.CanInterface;
@@ -103,6 +105,8 @@ public class Can1ChangeObserver implements Runnable {
         String can1Sp8 = split1[8];
 
         if (split1[0].equals(Constant.SPEED_OF_VEHICLE_ID)) {
+            Log.d("ccm------>","speedVehicle"+DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
+            Logger.d( "setReactantAllowance1111111: "+ DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
             can1DataBean.setSpeedOfVehicle(DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
         } else if (split1[0].equals(Constant.ROTATIONAL_SPEED_ID)) {
             can1DataBean.setRotationalSpeed((int) (DataUtils.HexTo10Int(can1Sp5 + can1Sp4) * 0.125));

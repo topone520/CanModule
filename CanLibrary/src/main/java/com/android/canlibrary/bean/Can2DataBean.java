@@ -105,8 +105,6 @@ public class Can2DataBean {
         this.degreeOfPushAfterShifting = degreeOfPushAfterShifting;
     }
 
-
-
     /**
      * 输入诊断的数据
      */
