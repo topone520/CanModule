@@ -126,14 +126,12 @@ public class Can2ChangeObserver implements Runnable{
             can2DataBean.setParkingSignal(Integer.parseInt(s2.substring(6, 7)));
             can2DataBean.setPowerGenerationSignal(Integer.parseInt(s2.substring(5, 6)));
             can2DataBean.setReverseSignal(Integer.parseInt(s2.substring(4, 5)));
-            // can2DataBean.setFuelLevel(DataUtils.HexTo10Int(s2.substring(1, 4)));00
-
             can2DataBean.setFuelLevel(DataUtils.BinTo10Int(s2.substring(0, 3)));
 
             // 解析第三个字节
             can2DataBean.setHydraulicOilTemperature(s3);
             // 解析第四个字节
-            can2DataBean.setGasTankPressure(s4);
+            can2DataBean.setGasTankPressure(s4 / 100);
             // 解析第五个字节
             can2DataBean.setCuttingTableAngleSensor(s5);
             // 解析第六个字节
