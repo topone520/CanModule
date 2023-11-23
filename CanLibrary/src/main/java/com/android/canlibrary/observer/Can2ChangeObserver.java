@@ -14,14 +14,17 @@ import com.android.canlibrary.utils.Logger;
  *
  */
 public class Can2ChangeObserver implements Runnable{
+
     private boolean isRunning;
     private CanInterface canInterface;
     private CanChangeListener mCanChangeListener;
+    private Can2DataBean can2DataBean;
 
     public Can2ChangeObserver() {
         isRunning = false;
         canInterface = new CanInterface();
         startListening();
+        can2DataBean = new Can2DataBean();
     }
 
     public CanChangeListener getCanChangeListener() {
@@ -75,8 +78,6 @@ public class Can2ChangeObserver implements Runnable{
 
 
     public Can2DataBean onCan2DataChange(String part1, String part2) {
-        Can2DataBean can2DataBean = new Can2DataBean();
-
         String str1 = "0x";
         String substring1 = part1.substring(0, 2);
         String substring2 = part1.substring(3, 5);

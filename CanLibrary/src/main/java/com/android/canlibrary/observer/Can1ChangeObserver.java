@@ -20,6 +20,7 @@ public class Can1ChangeObserver implements Runnable {
     private boolean isRunning;
     private CanInterface canInterface;
     private CanChangeListener mCanChangeListener;
+    private Can1DataBean can1DataBean;
 
     // 故障码
     private int fault1 = 0;
@@ -29,6 +30,7 @@ public class Can1ChangeObserver implements Runnable {
         isRunning = false;
         canInterface = new CanInterface();
         startListening();
+        can1DataBean = new Can1DataBean();
     }
 
     public CanChangeListener getCanChangeListener() {
@@ -81,8 +83,6 @@ public class Can1ChangeObserver implements Runnable {
     }
 
     public Can1DataBean onCan1DataChange(String part1, String part2){
-        Can1DataBean can1DataBean = new Can1DataBean();
-
         String str1 = "0x";
         int x = 8;
         String substring1 = part1.substring(0, 2);
@@ -105,8 +105,6 @@ public class Can1ChangeObserver implements Runnable {
         String can1Sp8 = split1[8];
 
         if (split1[0].equals(Constant.SPEED_OF_VEHICLE_ID)) {
-            Log.d("ccm------>","speedVehicle"+DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
-            Logger.d( "setReactantAllowance1111111: "+ DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
             can1DataBean.setSpeedOfVehicle(DataUtils.HexTo10Int(can1Sp7 + can1Sp8));
         } else if (split1[0].equals(Constant.ROTATIONAL_SPEED_ID)) {
             can1DataBean.setRotationalSpeed((int) (DataUtils.HexTo10Int(can1Sp5 + can1Sp4) * 0.125));
@@ -127,7 +125,6 @@ public class Can1ChangeObserver implements Runnable {
                 s1 = "0" + s1;
             }
             can1DataBean.setDriverWarningLight(Integer.parseInt(s1.substring(5,8)));
-
             while (s2.length() < 8) {
                 s2 = "0" + s2;
             }
