@@ -131,7 +131,7 @@ public class Can2ChangeObserver implements Runnable{
             // 解析第三个字节
             can2DataBean.setHydraulicOilTemperature(s3);
             // 解析第四个字节
-            can2DataBean.setGasTankPressure(s4 / 100);
+            can2DataBean.setGasTankPressure((float) (s4 * 0.01));
             // 解析第五个字节
             can2DataBean.setCuttingTableAngleSensor(s5);
             // 解析第六个字节

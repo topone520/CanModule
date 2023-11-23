@@ -869,7 +869,7 @@ public class Can2DataBean {
     private int hydraulicOilTemperature = -1;
     /** 0x0500第四个字节 **/
     // 1~8.气罐压力/Mpa
-    private int gasTankPressure = -1;
+    private float gasTankPressure = -1;
     /** 0x0500第五个字节 **/
     // 1~8.割台角度传感器 单片机名字：1号角度
     private int cuttingTableAngleSensor = -1;
@@ -997,11 +997,11 @@ public class Can2DataBean {
         this.hydraulicOilTemperature = hydraulicOilTemperature;
     }
 
-    public int getGasTankPressure() {
+    public float getGasTankPressure() {
         return gasTankPressure;
     }
 
-    public void setGasTankPressure(int gasTankPressure) {
+    public void setGasTankPressure(float gasTankPressure) {
         this.gasTankPressure = gasTankPressure;
     }
 
